@@ -47,6 +47,9 @@ c ^! sa@
 c $!
 c $! sa@
 ```
+
+It is possible to leave files empty (for example to not prepend special characters).
+
 ### Usage
 Place the files in the same folder as the script and run it.
 
