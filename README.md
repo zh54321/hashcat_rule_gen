@@ -30,18 +30,20 @@ File in the content of the file with the correct Hashcat rule syntax. Example:
 - `charrep.txt`: `sa@`
 
 This will generate:
-- `c`
-- `c $1`
-- `c $1 $!`
-- `c $! $1`
-- `c $1 $! sa@`
-- `c $! $1 sa@`
-- `c $1 ^!`
-- `c $1 ^! sa@`
-- `c ^1`
-- `c $! ^1`
-- `c ^1 $! sa@`
-- `c ^!`
-- `c ^! sa@`
-- `c $!`
-- `c $! sa@`
+```
+c
+c $1
+c $1 $!
+c $! $1
+c $1 $! sa@
+c $! $1 sa@
+c $1 ^!
+c $1 ^! sa@
+c ^1
+c $! ^1
+c ^1 $! sa@
+c ^!
+c ^! sa@
+c $!
+c $! sa@
+```
