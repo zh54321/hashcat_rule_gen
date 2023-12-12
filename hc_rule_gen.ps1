@@ -155,7 +155,7 @@ ForEach ($Line in $charrep_read ) {
         }
     }
 
-    ##Remove this loop if you don't want the special char without the number part (c ^!, c ^! sa@)
+    # Loop for special char (prepend) without the number part (c ^!, c ^! sa@)
     foreach ($special in $list_special_prep) {
         $Stream.WriteLine("$($prefix.txt) $($special.txt)")
         foreach ($charrep in $list_charrep) {
@@ -164,7 +164,7 @@ ForEach ($Line in $charrep_read ) {
         }
     }
 
-    ##Remove this loop if you don't want the special char without the number part (c $!, c $! sa@)
+    #Loop for special char (append) without the number part  (c $!, c $! sa@)
     foreach ($special in $list_special_app) {
         $Stream.WriteLine("$($prefix.txt) $($special.txt)")
         foreach ($charrep in $list_charrep) {
