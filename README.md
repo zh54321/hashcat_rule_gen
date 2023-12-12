@@ -1,5 +1,6 @@
 # Rule Generator For Hashcat
-Generate Hashcat rules file based on permutation of input files
+Generate Hashcat rules file based on permutation of input files.
+Useful in combination with small/custom wordlist.
 
 ### Rule Components
 
