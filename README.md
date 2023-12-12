@@ -1,27 +1,27 @@
 # Rule Generator For Hashcat
-Genereate Hashcat rules file based on permutation of input files.
-
-This script is designed to create rule files for password cracking with Hashcat. The main idea is that each rule can contain different elements, combined in various ways.
+Generate Hashcat rules file based on permutation of input files
 
 ### Rule Components
 
 The script uses the following components in the rule generation:
 
-- `%Word Case Operator%`: Utilizes the word from the wordlist. Example: `"l"` for lowercase.
-- `%Number or Common Chars%`: Includes numbers or common patterns. Examples: `"123"`, `"007"`, `"aaa"`, `"abc"`.
-- `%Specialchar%`: Common special characters. Examples: `"."`, `"!"`, `"?"`.
-- `%Character Replacement%`: Replaces characters with symbols. Examples: Replace `"a"` with `"@"`, `"s"` with `"$"`.
+- **%Word Case Operator%**: Example "l" which uses the word from the wordlist in lowercase
+- **%Number or common chars%**: Numbers like "123", "007", or common patterns like "aaa", "abc"
+- **%Specialchar%**: The common ".","!", or "?" which people use in their password
+- **%Character replacement%**: Replace "a" with an "@" or "s" with a "$"
 
 ### Position Matters
 
-The position of components like special characters is crucial. They could be at the start, middle, or end of a pattern. For example, `"!"` could appear in `"Summer2023!"`, `"Summer!2023"`, or `"!Summer2023"`. The script generates rules to cover all these cases.
+Example the "!" could be at the end (Summer2023!), in the middle (Summer!2023) or even at the start (!Summer2023).
+But it could be 2023Summer!, 2023!Summer, !2023Summer, Summer2023, 2023Summer, Summer!, !Summer, Summer as well...
+To cover all those cases the script will generate the rule files for it.
 
 ### Example Content and Generated Rules
 
 The script reads the content of the file with the correct Hashcat rule syntax and generates various combinations. 
 
 **Example Content:**
-
+File in the content of the file with the correct Hashcat rule syntax. Example:
 - `prefix.txt`: `c`
 - `numbers_append.txt`: `$1`
 - `numbers_prepend.txt`: `^1`
@@ -29,19 +29,19 @@ The script reads the content of the file with the correct Hashcat rule syntax an
 - `special_prepend.txt`: `^!`
 - `charrep.txt`: `sa@`
 
-**Generated Rules:**
-c
-c $1
-c $1 $!
-c $! $1
-c $1 $! sa@
-c $! $1 sa@
-c $1 ^!
-c $1 ^! sa@
-c ^1
-c $! ^1
-c ^1 $! sa@
-c ^!
-c ^! sa@
-c $!
-c $! sa@
+This will generate:
+- `c`
+- `c $1`
+- `c $1 $!`
+- `c $! $1`
+- `c $1 $! sa@`
+- `c $! $1 sa@`
+- `c $1 ^!`
+- `c $1 ^! sa@`
+- `c ^1`
+- `c $! ^1`
+- `c ^1 $! sa@`
+- `c ^!`
+- `c ^! sa@`
+- `c $!`
+- `c $! sa@`
