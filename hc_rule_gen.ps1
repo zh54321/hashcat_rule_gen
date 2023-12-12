@@ -15,7 +15,7 @@
     But it could be 2023Summer!, 2023!Summer, !2023Summer, Summer2023, 2023Summer, Summer!, !Summer, Summer as well...
     To cover all those cases the script will generate the rule files for it.
 
-    File in the content of the file with the correct Hashcat rule syntax.
+    Use input files with the correct Hashcat rule syntax.
     Example content:
    - prefix.txt: c
    - numbers_append.txt: $1
@@ -24,7 +24,7 @@
    - special_prepend.txt: ^!
    - charrep.txt: sa@
 
-This will generate:
+    This will generate the rule file:
     c
     c $1
     c $1 $!
@@ -155,6 +155,7 @@ ForEach ($Line in $charrep_read ) {
         }
     }
 
+    ##Remove this loop if you don't want the special char without the number part (c ^!, c ^! sa@)
     foreach ($special in $list_special_prep) {
         $Stream.WriteLine("$($prefix.txt) $($special.txt)")
         foreach ($charrep in $list_charrep) {
@@ -163,6 +164,7 @@ ForEach ($Line in $charrep_read ) {
         }
     }
 
+    ##Remove this loop if you don't want the special char without the number part (c $!, c $! sa@)
     foreach ($special in $list_special_app) {
         $Stream.WriteLine("$($prefix.txt) $($special.txt)")
         foreach ($charrep in $list_charrep) {
