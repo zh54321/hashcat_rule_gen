@@ -1,8 +1,8 @@
 <#
-	.SYNOPSIS
-	Genereate Hashcat rules file based on permutation of input files
+    .SYNOPSIS
+    Genereate Hashcat rules file based on permutation of input files
 	
-	.DESCRIPTION
+    .DESCRIPTION
     Does not take parameters everything is hardcoded.
     
     The main idea is that each rule can contain:
@@ -43,11 +43,12 @@
 
 
 	.EXAMPLE
-	hc_rule_gen
+	.\hc_rule_gen
 
 	.LINK
 	https://github.com/zh54321/hashcat_rule_gen
 #>
+
 # Output file
 $File   = 'big.rule'
 
@@ -59,7 +60,6 @@ $specialchar_append = "special_append.txt"
 $specialchar_prepend = "special_prepend.txt"
 $char_replacement = "charrep.txt"
 
-
 class cls {
     [string] $txt
     cls(
@@ -68,7 +68,6 @@ class cls {
        $this.txt = $t
      }
  }
-
 
 #Read files and store in lists
 $list_prefix = new-object System.Collections.Generic.List[cls]
