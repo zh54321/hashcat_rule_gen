@@ -21,7 +21,7 @@ To cover all those cases the script will generate the rule files for it.
 The script reads the content of the file with the correct Hashcat rule syntax and generates various combinations. 
 
 **Example Content:**
-File in the content of the file with the correct Hashcat rule syntax. Example:
+Use input files with the correct Hashcat rule syntax. Example:
 - `prefix.txt`: `c`
 - `numbers_append.txt`: `$1`
 - `numbers_prepend.txt`: `^1`
@@ -47,3 +47,6 @@ c ^! sa@
 c $!
 c $! sa@
 ```
+### Usage
+Place the files in the same folder as the script and run it.
+
