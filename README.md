@@ -15,7 +15,7 @@ The script uses the following components in the rule generation:
 
 Example the "!" could be at the end (Summer2023!), in the middle (Summer!2023) or even at the start (!Summer2023).
 But it could be 2023Summer!, 2023!Summer, !2023Summer, Summer2023, 2023Summer, Summer!, !Summer, Summer as well...
-To cover all those cases the script will generate the rule files for it.
+To cover all those cases the script will generate the rules for it.
 
 ### Example Content and Generated Rules
 
